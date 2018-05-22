@@ -1,0 +1,62 @@
+﻿<UserControl x:Class="MyNote.NoticeWrap"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:MyNote"
+             mc:Ignorable="d" Height="111.865" Width="400">
+    <Grid>
+        <materialDesign:Card
+  Background="#03a9f4"
+  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+  Padding="0"
+  Width="400">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition
+        Height="Auto" />
+                    <RowDefinition
+        Height="Auto" />
+                    <RowDefinition
+        Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock
+      Grid.Row="0"
+      Margin="16 16 16 4"
+      Style="{StaticResource MaterialDesignHeadlineTextBlock}" x:Name="NoticeText">
+
+                </TextBlock>
+                <Separator
+      Grid.Row="1"
+      Style="{StaticResource MaterialDesignLightSeparator}" />
+                <TextBlock
+                    x:Name="NoticeDate"
+      Grid.Row="2"
+      Margin="16 0 16 8"
+      VerticalAlignment="Center"
+      HorizontalAlignment="Left"
+      Style="{StaticResource MaterialDesignBody2TextBlock}">
+
+                </TextBlock>
+                <StackPanel
+      Grid.Row="2"
+      Orientation="Horizontal"
+      Margin="16 0 16 8"
+      HorizontalAlignment="Right">
+
+                    <Button
+  Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+  ToolTip="MaterialDesignFloatingActionDarkButton" Height="29" Margin="0,-3,0,18" Width="29" VerticalAlignment="Bottom"
+                        >
+
+                        <materialDesign:PackIcon
+    Kind="Close"
+    Height="24"
+    Width="24" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>
