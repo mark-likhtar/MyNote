@@ -22,12 +22,15 @@ namespace MyNote
     /// </summary>
     public partial class MainWindow : Window
     {
+        public UserDbContext db = new UserDbContext();
         public MainWindow(User user1)
         {
             InitializeComponent();
             user = user1;
-            username.Text = user.FirstName;
-
+            username.Text = "Привет, " + user.FirstName+ " :)";
+            HelloText.Text = "Привет, " + user.FirstName + "!";
+            var count = db.Database.SqlQuery<Note>("count (*) from Notes").ToString();
+            HelloTextNote.Text = "Заметок создано: " + count + "!";
         }
 
         public static User user = new User();

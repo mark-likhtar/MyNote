@@ -25,7 +25,7 @@ namespace MyNote
     public partial class UserControlHome : UserControl
     {
         SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-DQVBACB; Initial Catalog=MyNote; Integrated Security=True;");
-        public List<Note> notes;
+        public List<Note> notesList;
         public UserDbContext db = new UserDbContext();
         public User user = MainWindow.user;
         public UserControlHome()
@@ -39,12 +39,18 @@ namespace MyNote
         private void Search_Click(object sender, RoutedEventArgs e)
         {
             string keyword = searchData.Text;
-            string CmdString = "SELECT * FROM Note WHERE Title LIKE '%" + keyword + "%' ";
-            SqlCommand sqlCmd = new SqlCommand(CmdString, con);
-            DataTable dt = new DataTable("Employee");
-            SqlDataAdapter sda = new SqlDataAdapter(sqlCmd);
-            sda.Fill(dt);
-            grdEmployee.ItemsSource = dt.DefaultView;
+            var notess = db.Database.SqlQuery<Note>("Select * from Notes where Title like '%" + keyword + "%' and User_Id = " + user.Id).ToList();
+            foreach (var note in notess)
+            {
+                grdEmployee.ItemsSource = notess;
+            }
+            
+        }
+
+        private void ShowNotes()
+        {
+            notesList = db.Notes.Where(u => u.User.Id == user.Id).ToList();
+            grdEmployee.ItemsSource = notesList;
         }
 
         private void grdEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,6 +65,10 @@ namespace MyNote
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
+            Note item = grdEmployee.SelectedItem as Note;
+            db.Database.ExecuteSqlCommand("Delete from Notes where Id=" + item.Id);
+            db.SaveChanges();
+            ShowNotes();
 
         }
 
@@ -86,6 +96,7 @@ namespace MyNote
                 };
                 db.Notes.Add(note);
                 db.SaveChanges();
+                ShowNotes();
                 Reset1();
 
             }
@@ -109,9 +120,8 @@ namespace MyNote
         {
             using (UserDbContext db = new UserDbContext())
             {
-               
-                notes = db.Notes.Where(u => u.User.Id == user.Id).ToList();
-                grdEmployee.ItemsSource = notes;
+
+                ShowNotes();
             }
         }
     }
