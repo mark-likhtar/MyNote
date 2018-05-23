@@ -24,7 +24,6 @@ namespace MyNote
     /// </summary>
     public partial class UserControlHome : UserControl
     {
-        SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-DQVBACB; Initial Catalog=MyNote; Integrated Security=True;");
         public List<Note> notesList;
         public UserDbContext db = new UserDbContext();
         public User user = MainWindow.user;

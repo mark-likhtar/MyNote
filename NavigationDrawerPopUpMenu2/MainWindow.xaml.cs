@@ -29,8 +29,8 @@ namespace MyNote
             user = user1;
             username.Text = "Привет, " + user.FirstName+ " :)";
             HelloText.Text = "Привет, " + user.FirstName + "!";
-            var count = db.Database.SqlQuery<Note>("count (*) from Notes").ToString();
-            HelloTextNote.Text = "Заметок создано: " + count + "!";
+            var count = db.Notes.Where(u => u.User.Id == user.Id).Count();
+            HelloTextNote.Text = "Заметок создано: " + count ;
         }
 
         public static User user = new User();

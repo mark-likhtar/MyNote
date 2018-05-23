@@ -8,6 +8,7 @@ namespace MyNote
 
     public class Notice
     {
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -16,6 +17,8 @@ namespace MyNote
 
         public DateTime Time { get; set; }
 
+        [ForeignKey("User")]
+        public int User_Id { get; set; }
 
         public virtual User User { get; set; }
     }

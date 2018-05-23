@@ -27,6 +27,8 @@ namespace MyNote
         [StringLength(20)]
         public string Password { get; set; }
 
+        public virtual List<Notice> Notices { get; set; }
+
         public virtual List<Note> Notes { get; set; }
 
     }
