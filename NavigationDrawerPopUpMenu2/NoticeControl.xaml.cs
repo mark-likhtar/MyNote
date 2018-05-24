@@ -24,24 +24,22 @@ namespace MyNote
         
         public UserDbContext db = new UserDbContext();
         public User user = MainWindow.user;
+        public static NoticeControl ntwnd;
         public NoticeControl()
         {
             InitializeComponent();
-            var noticesList = db.Notices.Where(u => u.User.Id == user.Id).ToList();
-            wrapNotice.Children.Clear();
-            foreach (var n in noticesList)
-            {
-
-                NoticeWrap item = new NoticeWrap();
-                item.NoticeText.Text = n.Text;
-                item.NoticeDate.Text = n.Time.ToString();
-
-                wrapNotice.Children.Add(item);
-            }
+            AddNoticeChildren();
+            ntwnd = this;
         }
 
 
 
+        private void delItem_Click(object sender, RoutedEventArgs e)
+        {
+            var deleteNotice = db.Notices.Where(u => u.User.Id == user.Id).ToList();
+            var did = this.Tag;
+            MessageBox.Show(did.ToString());
+        }
 
         private void AddNotice_Click(object sender, RoutedEventArgs e)
         {
@@ -63,17 +61,17 @@ namespace MyNote
             }
         }
 
-        private void AddNoticeChildren()
+        public void AddNoticeChildren()
         {
+            var noticesList = db.Notices.Where(u => u.User.Id == user.Id).ToList();
             wrapNotice.Children.Clear();
-            var  noticesList = db.Notices.Where(u => u.User.Id == user.Id).ToList();
             foreach (var n in noticesList)
             {
-                
+
                 NoticeWrap item = new NoticeWrap();
                 item.NoticeText.Text = n.Text;
-                item.NoticeDate.DataContext = n.Time;
-
+                item.NoticeDate.Text = n.Time.ToString();
+                item.delItem.Tag = n.Id;
                 wrapNotice.Children.Add(item);
             }
         }

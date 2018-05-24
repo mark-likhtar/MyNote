@@ -31,11 +31,14 @@ namespace MyNote
             HelloText.Text = "Привет, " + user.FirstName + "!";
             var count = db.Notes.Where(u => u.User.Id == user.Id).Count();
             HelloTextNote.Text = "Заметок создано: " + count ;
+            var count2 = db.Notices.Where(u => u.User.Id == user.Id).Count();
+            HelloNotice.Text = "Напоминаний создано: " + count2;
+            manwnd = this;
         }
 
         public static User user = new User();
         
-       
+       public static Window manwnd;
 
         private void ButtonOpenMenu_Click(object sender, RoutedEventArgs e)
         {
@@ -56,11 +59,15 @@ namespace MyNote
 
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
-                case "ItemHome":
+                case "ItemNote":
                     usc = new UserControlHome();
                     GridMain.Children.Add(usc);
                     break;
-                case "ItemCreate":
+                case "ItemNotice":
+                    usc = new NoticeControl();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "ItemSettings":
                     usc = new NoticeControl();
                     GridMain.Children.Add(usc);
                     break;

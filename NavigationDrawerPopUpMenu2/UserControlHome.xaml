@@ -7,7 +7,7 @@
              xmlns:local="clr-namespace:MyNote"
              mc:Ignorable="d" 
              FontFamily="Roboto"
-             Background="#FbFBFBFB" Initialized="UserControl_Initialized">
+             Background="{DynamicResource MaterialDesignPaper}" Initialized="UserControl_Initialized">
     <Grid Height="478" Width="783">
         <TextBox x:Name="searchData" Background="#fff" Foreground="#FF31577E" HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Text="" Height="50" Margin="372,32,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="258" />
         <Button Click="Search_Click" Content="Найти" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" FontSize="20" HorizontalAlignment="Left" Margin="658,32,0,0" VerticalAlignment="Top" Width="93" Height="50" RenderTransformOrigin="0.5,0.5"/>

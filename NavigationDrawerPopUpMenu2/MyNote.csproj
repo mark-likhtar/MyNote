@@ -121,8 +121,8 @@
       <DependentUpon>SignUp.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\User.cs" />
-    <Compile Include="Notice.xaml.cs">
-      <DependentUpon>Notice.xaml</DependentUpon>
+    <Compile Include="NoticeControl.xaml.cs">
+      <DependentUpon>NoticeControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControlHome.xaml.cs">
       <DependentUpon>UserControlHome.xaml</DependentUpon>
@@ -152,7 +152,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Notice.xaml">
+    <Page Include="NoticeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

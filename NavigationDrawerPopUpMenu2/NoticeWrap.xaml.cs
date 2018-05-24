@@ -24,5 +24,18 @@ namespace MyNote
         {
             InitializeComponent();
         }
+
+        public UserDbContext db = new UserDbContext();
+        private void delItem_Click(object sender, RoutedEventArgs e)
+        {
+            var delId = this.delItem.Tag.ToString();
+            db.Database.ExecuteSqlCommand("Delete from Notices where Id=" + delId);
+            db.SaveChanges();
+            NoticeControl.ntwnd.AddNoticeChildren();
+            //MessageBox.Show(delId);
+            // var noticesList = db.Notices.ToList();
+            //var noticesDel = db.Notices.Where(n => n.Id.ToString() == delId).ToList();
+
+        }
     }
 }

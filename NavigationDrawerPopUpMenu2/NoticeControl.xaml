@@ -1,0 +1,36 @@
+﻿<UserControl x:Class="MyNote.NoticeControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:MyNote"
+             mc:Ignorable="d" 
+             >
+    <Grid Background="#FFDEDEDE" Width="926" Height="480">
+        <TextBlock Text="Напоминание" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="88,0,654,450"/>
+        <TextBox x:Name="NoticeText" Background="#fff" Foreground="#FF31577E" HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Text="" Height="52" Margin="312,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="580" />
+
+        <TextBlock Text="Когда напомнить" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="88,72,619,378"/>
+        <DatePicker 
+            x:Name="NoticeData"
+            Background="#fff"
+            materialDesign:HintAssist.Hint="Дата"
+            Padding="2"
+            Foreground="#FF31577E"
+            DisplayDateStart=""
+  Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="312,72,478,378" />
+        <materialDesign:TimePicker
+            x:Name="NoticeTime"
+            Foreground="#FF31577E"
+  Is24Hours="True" materialDesign:HintAssist.Hint="Время"
+            Background="#fff"
+ Margin="539,72,252,0" Height="30" />
+        <Button Content="Добавить" Click="AddNotice_Click" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" FontSize="20" HorizontalAlignment="Left" Margin="764,67,0,0" VerticalAlignment="Top" Width="128" Height="35" RenderTransformOrigin="0.482,0.718"/>
+        <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="0,107,0,0" Padding="0">
+            <WrapPanel x:Name="wrapNotice" Margin="88,0,30,0" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical">
+
+            </WrapPanel>
+        </ScrollViewer>
+    </Grid>
+</UserControl>
