@@ -93,5 +93,10 @@ namespace MyNote
             }
             
         }
+
+        private void DragEvent(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

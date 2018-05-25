@@ -1,0 +1,59 @@
+﻿<UserControl x:Class="MyNote.ArchiveWrap"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+             xmlns:local="clr-namespace:MyNote"
+             mc:Ignorable="d"  Height="193" Width="770">
+    <Grid Margin="0,0,0,16">
+        <materialDesign:Card Margin="2,5,8,0" 
+  Background="#FF5C99D6"
+  Foreground="{DynamicResource PrimaryHueDarkForegroundBrush}"
+  Padding="0"
+  Width="760" Height="169">
+            <Grid Margin="0,0,0,2">
+                <Grid.RowDefinitions>
+                    <RowDefinition
+        Height="30.5" />
+                    <RowDefinition Height="20.5"/>
+                    <RowDefinition
+        Height="Auto" />
+                    <RowDefinition
+        Height="Auto" />
+                    <RowDefinition Height="16*"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock  Grid.Row="0"  Margin="10,10,22,9" Style="{StaticResource MaterialDesignHeadlineTextBlock}" FontWeight="Bold" x:Name="ArchiveTitle" Grid.RowSpan="2">
+
+                </TextBlock>
+                <Separator
+      Style="{StaticResource MaterialDesignLightSeparator}" Margin="0,6,0,4" Grid.Row="2" />
+                <TextBlock
+                    x:Name="ArchiveText" Foreground="#fff" FontSize="26"  Grid.Row="3" Margin="10,2,0,9" VerticalAlignment="Center"
+      HorizontalAlignment="Left"
+      Style="{StaticResource MaterialDesignBody2TextBlock}" Width="601" Height="82" Grid.RowSpan="2"></TextBlock>
+                <TextBlock
+                    x:Name="ArchiveDate" Foreground="#fff"  FontSize="20"  Grid.Row="3" Margin="635,2,0,39" VerticalAlignment="Center"
+      HorizontalAlignment="Left"
+      Style="{StaticResource MaterialDesignBody2TextBlock}" Width="95" Height="52" Grid.RowSpan="2"></TextBlock>
+                <StackPanel
+      Grid.Row="4"
+      Orientation="Horizontal"
+      Margin="0,29,10,2"
+      HorizontalAlignment="Right" Width="81" RenderTransformOrigin="0.498,0.574" Grid.RowSpan="2">
+                    <Button x:Name="backItem" Click="backNotice_Click" Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+  ToolTip="MaterialDesignFloatingActionDarkButton" Height="29" Width="29" VerticalAlignment="Bottom">
+
+                        <materialDesign:PackIcon Kind="ArrowUpBold" Height="24" Width="24" Foreground="#fff" />
+                    </Button>
+                    <Button x:Name="delItem" Click="delArchive_Click" Margin="10,5,10,0"  Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
+  ToolTip="MaterialDesignFloatingActionDarkButton" Height="29" Width="29" VerticalAlignment="Bottom">
+
+                        <materialDesign:PackIcon Kind="Delete" Height="24" Width="24" Foreground="#fff" />
+                    </Button>
+                </StackPanel>
+            </Grid>
+        </materialDesign:Card>
+    </Grid>
+</UserControl>

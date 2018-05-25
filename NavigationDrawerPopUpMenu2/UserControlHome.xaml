@@ -14,7 +14,7 @@
 
         <materialDesign:Card
     materialDesign:ShadowAssist.ShadowDepth="Depth4"  Margin="30,87,32,0" Height="220"></materialDesign:Card>
-        <DataGrid Name="grdEmployee" Foreground="#fff" Background="#fff" HorizontalAlignment="Left" Height="220" Margin="30,87,0,0" VerticalAlignment="Top" Width="721" SelectionChanged="grdEmployee_SelectionChanged" AutoGenerateColumns="False">
+        <DataGrid Name="grdEmployee" Foreground="#fff" IsReadOnly="True" Background="#fff" HorizontalAlignment="Left" Height="220" Margin="30,87,0,0" VerticalAlignment="Top" Width="721" SelectionChanged="grdEmployee_SelectionChanged"  AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF31577E"/>
@@ -37,7 +37,7 @@
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}"  Header="Тема" Width="250"/>
                 <DataGridTextColumn Binding="{Binding Text}" Header="Заметка" Width="300" />
-                <DataGridTextColumn Binding="{Binding Time}" Header="Дата" Width="160"/>
+                <DataGridTextColumn Binding="{Binding Time, StringFormat=\{0:dd.MM.yy\}}"  Header="Дата" Width="160"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Обновить" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" FontSize="20" HorizontalAlignment="Left" Margin="30,32,0,0" VerticalAlignment="Top" Width="129" Height="50" Click="Update_Click"/>

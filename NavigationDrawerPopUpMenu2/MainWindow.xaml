@@ -34,7 +34,7 @@
             <TextBlock x:Name="HelloTextNote" FontSize="56" Foreground="#FF31577E" Margin="87,134,47,307" FontWeight="Bold" />
             <TextBlock x:Name="HelloNotice" FontSize="56" Foreground="#FF31577E" Margin="87,233,47,208" FontWeight="Bold" />
         </Grid>
-        <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6">
+        <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6" MouseLeftButtonDown="DragEvent">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="3" Color="#FFACACAC"/>
             </Grid.Effect>
@@ -88,10 +88,10 @@
                             <TextBlock Text="Напоминания" VerticalAlignment="Center" Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" x:Name="ItemArchive">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Settings" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Настройки" VerticalAlignment="Center"  Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="Book" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Архив" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60">

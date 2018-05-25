@@ -88,5 +88,10 @@ namespace MyNote
             registration.Show();
 
         }
+
+        private void DragEvent(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
     }
 }

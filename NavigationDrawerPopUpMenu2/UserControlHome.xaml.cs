@@ -54,7 +54,13 @@ namespace MyNote
 
         private void grdEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
+            Note row = (Note)grdEmployee.SelectedItem;
+            if (row!=null)
+            {
+                search_Copy.Text = row.Title.ToString();
+                textBoxText.Text = row.Text.ToString();
+                DatePick.Text = row.Time.ToShortDateString();
+            }
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
@@ -65,6 +71,14 @@ namespace MyNote
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             Note item = grdEmployee.SelectedItem as Note;
+            Archive addItem = new Archive
+            {
+                Title = item.Title,
+                Text = item.Text,
+                Time = item.Time,
+                User_Id = item.User_Id
+            };
+            db.Archives.Add(addItem);
             db.Database.ExecuteSqlCommand("Delete from Notes where Id=" + item.Id);
             db.SaveChanges();
             ShowNotes();
@@ -122,6 +136,11 @@ namespace MyNote
 
                 ShowNotes();
             }
+        }
+
+        private void SelectGrid(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("Я выбран :D");
         }
     }
 }

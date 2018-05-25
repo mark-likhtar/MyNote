@@ -67,8 +67,8 @@ namespace MyNote
                     usc = new NoticeControl();
                     GridMain.Children.Add(usc);
                     break;
-                case "ItemSettings":
-                    usc = new NoticeControl();
+                case "ItemArchive":
+                    usc = new ArchiveControl();
                     GridMain.Children.Add(usc);
                     break;
                 default:
@@ -97,6 +97,11 @@ namespace MyNote
             this.ShowInTaskbar=true;
     
 
+        }
+
+        private void DragEvent(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
         }
     }
 }

@@ -64,8 +64,10 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -84,6 +86,13 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ArchiveControl.xaml.cs">
+      <DependentUpon>ArchiveControl.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ArchiveWrap.xaml.cs">
+      <DependentUpon>ArchiveWrap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Data\Archive.cs" />
     <Compile Include="Data\Note.cs" />
     <Compile Include="Data\Notice.cs" />
     <Compile Include="Migrations\201805220934552_init1.cs" />
@@ -110,9 +119,16 @@
     <Compile Include="Migrations\201805231019005_init5.Designer.cs">
       <DependentUpon>201805231019005_init5.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201805241907151_init6.cs" />
+    <Compile Include="Migrations\201805241907151_init6.Designer.cs">
+      <DependentUpon>201805241907151_init6.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NoticeWrap.xaml.cs">
       <DependentUpon>NoticeWrap.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.xaml.cs">
+      <DependentUpon>Settings.xaml</DependentUpon>
     </Compile>
     <Compile Include="SignIn.xaml.cs">
       <DependentUpon>SignIn.xaml</DependentUpon>
@@ -128,6 +144,14 @@
       <DependentUpon>UserControlHome.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\UserdbContext.cs" />
+    <Page Include="ArchiveControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ArchiveWrap.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -144,6 +168,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Settings.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SignIn.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -155,6 +183,10 @@
     <Page Include="NoticeControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="UserControlHome.xaml">
       <SubType>Designer</SubType>
@@ -192,6 +224,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201805231019005_init5.resx">
       <DependentUpon>201805231019005_init5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201805241907151_init6.resx">
+      <DependentUpon>201805241907151_init6.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
