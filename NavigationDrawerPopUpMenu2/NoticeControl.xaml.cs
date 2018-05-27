@@ -32,7 +32,7 @@ namespace MyNote
             ntwnd = this;
         }
 
-
+        
 
         private void delItem_Click(object sender, RoutedEventArgs e)
         {
@@ -46,22 +46,34 @@ namespace MyNote
             DateTime dateNotice = new DateTime();
             if (NoticeData.DisplayDate.Date != null && NoticeTime.SelectedTime!= null)
             {  dateNotice = NoticeData.DisplayDate.Date + NoticeTime.SelectedTime.Value.TimeOfDay; }
-            string noticeText = NoticeText.Text;
-            if (noticeText!="" && dateNotice!=null)
+            if (dateNotice < DateTime.Now)
             {
-                Notice notice = new Notice
-                {
-                    Text = noticeText,
-                    Time = dateNotice,
-                    User_Id = user.Id
-                };
-                db.Notices.Add(notice);
-                db.SaveChanges();
-                AddNoticeChildren();
-                ResetNotice();
-            } else { errors.Text = "Заполните поля";
+                errors.Text = "Некорректная дата";
                 await Task.Delay(2000);
                 errors.Text = "";
+            }
+            else
+            {
+                string noticeText = NoticeText.Text;
+                if (noticeText != "" && dateNotice != null)
+                {
+                    Notice notice = new Notice
+                    {
+                        Text = noticeText,
+                        Time = dateNotice,
+                        User_Id = user.Id
+                    };
+                    db.Notices.Add(notice);
+                    db.SaveChanges();
+                    AddNoticeChildren();
+                    ResetNotice();
+                }
+                else
+                {
+                    errors.Text = "Заполните поля";
+                    await Task.Delay(2000);
+                    errors.Text = "";
+                }
             }
         }
 
