@@ -40,14 +40,13 @@
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="96,141,0,0" x:Name="textBlock1" Text="" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0.45,0.478" ><InlineUIContainer>
                 <materialDesign:PackIcon Kind="Account" Height="25" Width="24" />
             </InlineUIContainer></TextBlock>
-        <TextBox Name="textboxName"
+        <TextBox Name="textboxName" MaxLength="20"
   materialDesign:HintAssist.Hint="Введите логин"
   Style="{StaticResource MaterialDesignFloatingHintTextBox}" Margin="133,128,126,186" />
         <TextBlock Height="23" HorizontalAlignment="Left" Margin="96,192,0,0" x:Name="textBlock2" Text="" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0.45,0.478" ><InlineUIContainer>
                 <materialDesign:PackIcon Kind="Key" Height="25" Width="24" />
             </InlineUIContainer></TextBlock>
-        <PasswordBox  
-  x:Name="PasswordBox"
+        <PasswordBox x:Name="PasswordBox" MaxLength="20"
   materialDesign:HintAssist.Hint="Введите пароль"
   Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="134,169,126,135" />
         <Button Click="Button_Click"

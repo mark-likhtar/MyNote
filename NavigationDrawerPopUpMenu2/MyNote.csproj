@@ -140,8 +140,8 @@
     <Compile Include="NoticeControl.xaml.cs">
       <DependentUpon>NoticeControl.xaml</DependentUpon>
     </Compile>
-    <Compile Include="UserControlHome.xaml.cs">
-      <DependentUpon>UserControlHome.xaml</DependentUpon>
+    <Compile Include="NoteControl.xaml.cs">
+      <DependentUpon>NoteControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Data\UserdbContext.cs" />
     <Page Include="ArchiveControl.xaml">
@@ -188,7 +188,7 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="UserControlHome.xaml">
+    <Page Include="NoteControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

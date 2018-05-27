@@ -46,35 +46,39 @@ namespace MyNote
             PasswordBox.Password = "";
         }
 
-        private void Submit_Click(object sender, RoutedEventArgs e)
+        async private void Submit_Click(object sender, RoutedEventArgs e)
         {
-            if (textboxName.Text.Length == 0)
+            if (textboxName.Text.Length == 0 || textboxFirstName.Text.Length == 0 || textboxLastName.Text.Length == 0)
             {
-                errormessage.Text = "Введите логин";
+                errormessage.Text = "Введите данные";
                 textboxName.Focus();
+                await Task.Delay(2000);
+                errormessage.Text = "";
             }
-            /*else if (!Regex.IsMatch(textboxName.Text, @"\w"))
+            else if (!Regex.IsMatch(textboxName.Text, @"\w[0-9a-zA-Z]"))
             {
                 errormessage.Text = "Введите корректный логин";
                 textboxName.Select(0, textboxName.Text.Length);
                 textboxName.Focus();
-            }*/
+                await Task.Delay(2000);
+                errormessage.Text = "";
+            }
             else
             {
                 string firstname = textboxFirstName.Text;
                 string lastname = textboxLastName.Text;
                 string login = textboxName.Text;
                 string password = PasswordBox.Password;
-                if (PasswordBox.Password.Length == 0)
+                if (PasswordBox.Password.Length == 0 || !Regex.IsMatch(password, @"^\w[0-9a-zA-Z]"))
                 {
                     errormessage.Text = "Введите пароль";
                     PasswordBox.Focus();
+                    await Task.Delay(2000);
+                    errormessage.Text = "";
                 }
                 else
                 {
-                    errormessage.Text = "";
-
-                    using (UserDbContext db = new UserDbContext())
+                     using (UserDbContext db = new UserDbContext())
                     {
                         User user = new User
                         {
@@ -89,6 +93,8 @@ namespace MyNote
                     }
                     errormessage.Text = "Зерегестрирован";
                     Reset();
+                    await Task.Delay(2000);
+                    errormessage.Text = "";
                 }
             }
             

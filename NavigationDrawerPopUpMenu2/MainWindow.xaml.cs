@@ -33,6 +33,8 @@ namespace MyNote
             HelloTextNote.Text = "Заметок создано: " + count ;
             var count2 = db.Notices.Where(u => u.User.Id == user.Id).Count();
             HelloNotice.Text = "Напоминаний создано: " + count2;
+            var count3 = db.Archives.Where(u => u.User.Id == user.Id).Count();
+            HelloArchive.Text = "Заметок в архиве: " + count3;
             manwnd = this;
         }
 
@@ -60,7 +62,7 @@ namespace MyNote
             switch (((ListViewItem)((ListView)sender).SelectedItem).Name)
             {
                 case "ItemNote":
-                    usc = new UserControlHome();
+                    usc = new NoteControl();
                     GridMain.Children.Add(usc);
                     break;
                 case "ItemNotice":
@@ -69,6 +71,10 @@ namespace MyNote
                     break;
                 case "ItemArchive":
                     usc = new ArchiveControl();
+                    GridMain.Children.Add(usc);
+                    break;
+                case "ItemSettings":
+                    usc = new Settings();
                     GridMain.Children.Add(usc);
                     break;
                 default:

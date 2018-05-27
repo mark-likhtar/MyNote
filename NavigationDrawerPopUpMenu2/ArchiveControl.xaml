@@ -9,15 +9,15 @@
 
     <Grid Background="#FFDEDEDE"  Width="946" Height="480">
         <materialDesign:Card
-    materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="62" Margin="66,0,213,0">
+    materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="62" Margin="66,0,204,0">
         </materialDesign:Card>
-        <TextBlock Text="Архив удаленных заметок" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="153,10,439,432"/>
+        <TextBlock Text="Архив выполненных заметок" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="153,10,422,432"/>
         <materialDesign:Card
     materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="446" Margin="66,24,22,0">
         </materialDesign:Card>
 
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="134,53,10,15" Padding="0">
-            <WrapPanel x:Name="wrapArchive"  Width="760" Height="392" Margin="0,0,30,0"/>
+            <WrapPanel x:Name="wrapArchive"  SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical" Margin="0,0,30,0"/>
         </ScrollViewer>
     </Grid>
 </UserControl>

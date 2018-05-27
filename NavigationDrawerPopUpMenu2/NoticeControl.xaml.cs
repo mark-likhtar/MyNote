@@ -41,12 +41,13 @@ namespace MyNote
             MessageBox.Show(did.ToString());
         }
 
-        private void AddNotice_Click(object sender, RoutedEventArgs e)
+        async private void AddNotice_Click(object sender, RoutedEventArgs e)
         {
-            
-            DateTime dateNotice = NoticeData.DisplayDate.Date + NoticeTime.SelectedTime.Value.TimeOfDay;
+            DateTime dateNotice = new DateTime();
+            if (NoticeData.DisplayDate.Date != null && NoticeTime.SelectedTime!= null)
+            {  dateNotice = NoticeData.DisplayDate.Date + NoticeTime.SelectedTime.Value.TimeOfDay; }
             string noticeText = NoticeText.Text;
-            if (noticeText!="" && NoticeData!=null)
+            if (noticeText!="" && dateNotice!=null)
             {
                 Notice notice = new Notice
                 {
@@ -58,6 +59,9 @@ namespace MyNote
                 db.SaveChanges();
                 AddNoticeChildren();
                 ResetNotice();
+            } else { errors.Text = "Заполните поля";
+                await Task.Delay(2000);
+                errors.Text = "";
             }
         }
 

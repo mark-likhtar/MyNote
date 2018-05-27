@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="MyNote.UserControlHome"
+﻿<UserControl x:Class="MyNote.NoteControl"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -25,7 +25,7 @@
                 </Style>
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="Foreground" Value="#FF31577E"/>
-                    <Setter Property="Height" Value="25"/>
+                    <Setter Property="Height" Value="40"/>
                     <Setter Property="FontSize" Value="15"/>
                     <Setter Property="Padding" Value="3"/>
                     <Setter Property="FontWeight" Value="SemiBold"/>
@@ -36,8 +36,8 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}"  Header="Тема" Width="250"/>
-                <DataGridTextColumn Binding="{Binding Text}" Header="Заметка" Width="300" />
-                <DataGridTextColumn Binding="{Binding Time, StringFormat=\{0:dd.MM.yy\}}"  Header="Дата" Width="160"/>
+                <DataGridTextColumn Binding="{Binding Text}" Header="Заметка" Width="350" />
+                <DataGridTextColumn Binding="{Binding Time, StringFormat=\{0:dd.MM.yy\}}"  Header="Дата" Width="110"/>
             </DataGrid.Columns>
         </DataGrid>
         <Button Content="Обновить" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" FontSize="20" HorizontalAlignment="Left" Margin="30,32,0,0" VerticalAlignment="Top" Width="129" Height="50" Click="Update_Click"/>
@@ -45,9 +45,9 @@
         <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Content="Сохранить" Click="Save_Click"  FontSize="20" HorizontalAlignment="Left" Margin="32,429,0,10" Width="142" Height="Auto" RenderTransformOrigin="0.482,0.718"/>
         <TextBlock Text="Тема" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="30,326,687,118"/>
         <TextBlock Text="Текст" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="282,326,436,118"/>
-        <TextBox Name="textBoxText" HorizontalAlignment="Left" FontSize="25" Background="#fff" Padding="5" Height="98" Margin="352,326,0,0" Foreground="#FF31577E" TextWrapping="Wrap" VerticalAlignment="Top" Width="399" TextChanged="textBoxText_TextChanged" materialDesign:HintAssist.Hint=""/>
-
-        <TextBox Name="search_Copy" Background="Transparent" HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Text="" Height="40" Margin="101,326,0,0" TextWrapping="Wrap" Foreground="#FF31577E"  VerticalAlignment="Top" Width="157" />
+        <TextBox Name="textBoxText" MaxLength="50" HorizontalAlignment="Left" FontSize="25" Background="#fff" Padding="5" Height="98" Margin="352,326,0,0" Foreground="#FF31577E" TextWrapping="Wrap" VerticalAlignment="Top" Width="399" TextChanged="textBoxText_TextChanged" materialDesign:HintAssist.Hint=""/>
+        <TextBlock x:Name="errors" FontSize="26" Foreground="Red" TextAlignment="Right" Margin="350,429,32,10"></TextBlock>
+        <TextBox Name="search_Copy" MaxLength="20" Background="Transparent" HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Text="" Height="40" Margin="101,326,0,0" TextWrapping="Wrap" Foreground="#FF31577E"  VerticalAlignment="Top" Width="157" />
         <DatePicker Name="DatePick" Foreground="#FF31577E" HorizontalAlignment="Center" FontSize="16"
   materialDesign:HintAssist.Hint="Выберите дату" 
   Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="101,382,539,68" Width="143" />

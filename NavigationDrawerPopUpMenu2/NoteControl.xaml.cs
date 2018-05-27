@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -22,18 +23,18 @@ namespace MyNote
     /// <summary>
     /// Interação lógica para UserControlHome.xam
     /// </summary>
-    public partial class UserControlHome : UserControl
+    public partial class NoteControl : UserControl
     {
         public List<Note> notesList;
         public UserDbContext db = new UserDbContext();
         public User user = MainWindow.user;
-        public UserControlHome()
+        public NoteControl()
         {
             InitializeComponent();
-            
+
 
         }
-
+        int noteId;
 
         private void Search_Click(object sender, RoutedEventArgs e)
         {
@@ -43,7 +44,7 @@ namespace MyNote
             {
                 grdEmployee.ItemsSource = notess;
             }
-            
+
         }
 
         private void ShowNotes()
@@ -55,20 +56,34 @@ namespace MyNote
         private void grdEmployee_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Note row = (Note)grdEmployee.SelectedItem;
-            if (row!=null)
+            if (row != null)
             {
+                noteId = row.Id;
                 search_Copy.Text = row.Title.ToString();
                 textBoxText.Text = row.Text.ToString();
                 DatePick.Text = row.Time.ToShortDateString();
             }
         }
 
-        private void Update_Click(object sender, RoutedEventArgs e)
+        async private void Update_Click(object sender, RoutedEventArgs e)
         {
+            DateTime date = DatePick.DisplayDate;
+            string title = search_Copy.Text;
+            string notes = textBoxText.Text;
+            db.Database.ExecuteSqlCommand("Update Notes set Title='" + title + "', Text='" + notes + "' ,Time='" + date + "' where Id = " + noteId);
+            db.SaveChanges();
+            var notess = db.Database.SqlQuery<Note>("Select * from Notes where User_Id = " + user.Id).ToList();
+            foreach (var note in notess)
+            {
+                grdEmployee.ItemsSource = notess;
+            }
+            errors.Text = "Изменено";
+            await Task.Delay(2000);
+            errors.Text = "";
 
         }
 
-        private void Delete_Click(object sender, RoutedEventArgs e)
+        async private void Delete_Click(object sender, RoutedEventArgs e)
         {
             Note item = grdEmployee.SelectedItem as Note;
             Archive addItem = new Archive
@@ -82,6 +97,9 @@ namespace MyNote
             db.Database.ExecuteSqlCommand("Delete from Notes where Id=" + item.Id);
             db.SaveChanges();
             ShowNotes();
+            errors.Text = "Удалено";
+            await Task.Delay(2000);
+            errors.Text = "";
 
         }
 
@@ -91,33 +109,40 @@ namespace MyNote
             textBoxText.Text = "";
             DatePick.Text = "";
         }
+        public Timer timer;
 
-        private void Save_Click(object sender, RoutedEventArgs e)
+
+        async private void Save_Click(object sender, RoutedEventArgs e)
         {
             DateTime date = DatePick.DisplayDate;
             string title = search_Copy.Text;
             string notes = textBoxText.Text;
-            
-            if (title != "" && notes!="")
+
+            if (title != "" && notes != "" && date != null)
             {
                 Note note = new Note
                 {
                     Title = title,
                     Time = date,
                     Text = notes,
-                    User_Id= user.Id
+                    User_Id = user.Id
                 };
                 db.Notes.Add(note);
                 db.SaveChanges();
                 ShowNotes();
                 Reset1();
+                errors.Text = "Добавлено";
+                await Task.Delay(2000);
+                errors.Text = "";
 
+            } else { errors.Text = "Заполните поля";
+                await Task.Delay(2000);
+                errors.Text = "";
             }
-            
-
-
         }
 
+
+       
         public void Reset1()
         {
             search_Copy.Text = "";
@@ -136,11 +161,6 @@ namespace MyNote
 
                 ShowNotes();
             }
-        }
-
-        private void SelectGrid(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("Я выбран :D");
         }
     }
 }

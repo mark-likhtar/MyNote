@@ -30,14 +30,28 @@
     </Window.Triggers>
     <Grid Background="#FFDEDEDE">
         <Grid x:Name="GridMain" HorizontalAlignment="Right" VerticalAlignment="Bottom" Height="540" Width="1010">
-            <TextBlock x:Name="HelloText" FontSize="56" Foreground="#FF31577E" Margin="87,30,47,411" FontWeight="Bold" ></TextBlock>
-            <TextBlock x:Name="HelloTextNote" FontSize="56" Foreground="#FF31577E" Margin="87,134,47,307" FontWeight="Bold" />
-            <TextBlock x:Name="HelloNotice" FontSize="56" Foreground="#FF31577E" Margin="87,233,47,208" FontWeight="Bold" />
+
+            <materialDesign:Card
+    materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="454" Margin="87,30,22,0">
+            </materialDesign:Card>
+            <TextBlock x:Name="HelloText" FontSize="30" Foreground="#FF31577E" Margin="195,90,65,387" FontWeight="Bold" ></TextBlock>
+            <Separator
+      Style="{StaticResource MaterialDesignDarkSeparator}" Margin="195,158,65,372" Height="Auto" />
+            <TextBlock x:Name="HelloTextNote" FontSize="30" Foreground="#FF31577E" Margin="195,173,65,302" FontWeight="Bold" />
+            <Separator
+      Style="{StaticResource MaterialDesignDarkSeparator}" Margin="195,243,65,287" Height="Auto" />
+            <TextBlock x:Name="HelloNotice" FontSize="30" Foreground="#FF31577E" Margin="195,258,65,221" FontWeight="Bold" />
+            <Separator
+      Style="{StaticResource MaterialDesignDarkSeparator}" Margin="195,324,65,206" Height="Auto" />
+            <TextBlock x:Name="HelloArchive" FontSize="30" Foreground="#FF31577E" Margin="195,339,65,140" FontWeight="Bold" />
+            <Separator
+      Style="{StaticResource MaterialDesignDarkSeparator}" Margin="195,405,65,125" Height="Auto" />
         </Grid>
         <Grid Height="60" VerticalAlignment="Top" Background="#FF5C99D6" MouseLeftButtonDown="DragEvent">
             <Grid.Effect>
                 <DropShadowEffect BlurRadius="10" ShadowDepth="3" Color="#FFACACAC"/>
             </Grid.Effect>
+
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                 <TextBlock x:Name="username" VerticalAlignment="Center" FontSize="16"/>
                 <materialDesign:PopupBox PlacementMode="BottomAndAlignRightEdges" StaysOpen="False" Margin="10">
@@ -94,10 +108,10 @@
                             <TextBlock Text="Архив" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="60">
+                    <ListViewItem Height="60" x:Name="ItemSettings">
                         <StackPanel Orientation="Horizontal">
-                            <materialDesign:PackIcon Kind="Message" Height="25" Width="25" Margin="10"/>
-                            <TextBlock Text="Messages" VerticalAlignment="Center"  Margin="20 10"/>
+                            <materialDesign:PackIcon Kind="Settings" Height="25" Width="25" Margin="10"/>
+                            <TextBlock Text="Настройки" VerticalAlignment="Center"  Margin="20 10"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

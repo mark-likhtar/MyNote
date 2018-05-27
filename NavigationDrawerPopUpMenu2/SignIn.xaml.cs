@@ -32,19 +32,23 @@ namespace MyNote
 
         
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        async private void Button_Click(object sender, RoutedEventArgs e)
         {
 
-            if (textboxName.Text.Length == 0)
+            if (textboxName.Text.Length == 0 || PasswordBox.Password.Length==0)
             {
-                errormessage.Text = "Введите имя.";
+                errormessage.Text = "Введите логин и/или пароль";
                 textboxName.Focus();
+                await Task.Delay(2000);
+                errormessage.Text = "";
             }
-            else if (!Regex.IsMatch(textboxName.Text, @"^\w"))
+            else if (!Regex.IsMatch(textboxName.Text, @"^\w[0-9a-zA-Z]"))
             {
-                errormessage.Text = "Введите имя";
+                errormessage.Text = "Введите корректный логин";
                 textboxName.Select(0, textboxName.Text.Length);
                 textboxName.Focus();
+                await Task.Delay(2000);
+                errormessage.Text = "";
             }
             else
             {
@@ -63,17 +67,9 @@ namespace MyNote
                 else
                 {
                     errormessage.Text = "Неверный логин или пароль!";
+                    await Task.Delay(2000);
+                    errormessage.Text = "";
                 }
-
-
-                
-
-
-
-               
-                
-
-                
             }
         }
 

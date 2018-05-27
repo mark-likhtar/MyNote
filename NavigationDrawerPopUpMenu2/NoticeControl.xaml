@@ -11,23 +11,24 @@
     materialDesign:ShadowAssist.ShadowDepth="Depth5" Height="437" Margin="45,52,0,-9" HorizontalAlignment="Left" Width="847" >
         </materialDesign:Card>
         <TextBlock Text="Напоминание" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="92,-10,650,460"/>
-        <TextBox x:Name="NoticeText" Background="#fff" Foreground="#FF31577E" HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Text="" Height="52" Margin="316,-10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="580" />
+        <TextBox x:Name="NoticeText" Background="#fff"  Foreground="#FF31577E" HorizontalAlignment="Left" MaxLength="50" FontSize="25" TextAlignment="Center" Text="" Height="52" Margin="316,-10,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="580" />
 
         <TextBlock Text="Когда напомнить" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="92,62,615,388"/>
-        <DatePicker 
+        <DatePicker  Padding="2,1,1,0"
             x:Name="NoticeData"
             Background="#fff"
             materialDesign:HintAssist.Hint="Дата"
-            Padding="2"
+            
             Foreground="#FF31577E"
             DisplayDateStart=""
   Style="{StaticResource MaterialDesignFloatingHintDatePicker}" Margin="316,62,474,388" />
         <materialDesign:TimePicker
             x:Name="NoticeTime"
-            Foreground="#FF31577E"
+            Foreground="#FF31577E" Padding="2,1,1,0"
   Is24Hours="True" materialDesign:HintAssist.Hint="Время"
             Background="#fff"
- Margin="543,62,248,0" Height="30" />
+ Margin="457,62,334,0" Height="30" />
+        <TextBlock x:Name="errors" FontSize="18" Foreground="Red" Margin="601,62,163,388"></TextBlock>
         <Button Content="Добавить" Click="AddNotice_Click" Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" FontSize="20" HorizontalAlignment="Left" Margin="768,57,0,0" VerticalAlignment="Top" Width="128" Height="35" RenderTransformOrigin="0.482,0.718"/>
         <ScrollViewer VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Disabled" HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="0,107,0,0" Padding="0">
             <WrapPanel x:Name="wrapNotice" Margin="88,0,30,0" SelectiveScrollingGrid.SelectiveScrollingOrientation="Vertical">
