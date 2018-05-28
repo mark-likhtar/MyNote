@@ -7,13 +7,13 @@ namespace MyNote.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.2.0-61023")]
-    public sealed partial class init5 : IMigrationMetadata
+    public sealed partial class init7 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(init5));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(init7));
         
         string IMigrationMetadata.Id
         {
-            get { return "201805231019005_init5"; }
+            get { return "201805281405259_init7"; }
         }
         
         string IMigrationMetadata.Source

@@ -11,12 +11,12 @@
         <Rectangle RadiusX="20" RadiusY="20" Margin="20,0" MouseLeftButtonDown="DragEvent">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#daebfd" Offset="0"></GradientStop>
-                    <GradientStop Color="#daebfd" Offset="0.9"></GradientStop>
+                    <GradientStop Color="White" Offset="0"></GradientStop>
+                    <GradientStop Color="#FF1B497A" Offset="0.9"></GradientStop>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock Margin="147,29,146,291" FontSize="24" FontWeight="ExtraBold">Регистрация</TextBlock>
+        <TextBlock Margin="167,25,126,295" FontSize="24" FontWeight="ExtraBold">Регистрация</TextBlock>
 
 
         <materialDesign:Card
@@ -25,7 +25,7 @@
             <TextBlock Height="19" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="191" Margin="33,197,0,-18"  OpacityMask="Crimson" Foreground="#FFE5572C" TextAlignment="Center" />
 
         </materialDesign:Card>
-        <materialDesign:PackIcon Kind="Note" Height="99" Width="74" Margin="73,-13,0,0" />
+        <materialDesign:PackIcon Kind="Note" Height="99" Width="74" Margin="93,-17,0,0" />
         <Button Click="CloseApp_Click"
   Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
   ToolTip="MaterialDesignFloatingActionDarkButton" Margin="378,15,32,295" Height="Auto" Width="Auto">
@@ -44,7 +44,7 @@
                 <materialDesign:PackIcon Kind="Key" Height="25" Width="24" />
             </InlineUIContainer></TextBlock>
         <PasswordBox x:Name="PasswordBox" MaxLength="20"  materialDesign:HintAssist.Hint="Введите пароль"
-  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="134,207,126,97" />
+  Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Margin="134,205,126,97" />
         <Button Click="Submit_Click"
     Style="{StaticResource MaterialDesignRaisedDarkButton}"
     ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Margin="96,268,201,50">

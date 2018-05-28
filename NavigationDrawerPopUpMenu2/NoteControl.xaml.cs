@@ -20,9 +20,6 @@ using System.Data.SqlClient;
 
 namespace MyNote
 {
-    /// <summary>
-    /// Interação lógica para UserControlHome.xam
-    /// </summary>
     public partial class NoteControl : UserControl
     {
         public List<Note> notesList;
@@ -31,7 +28,6 @@ namespace MyNote
         public NoteControl()
         {
             InitializeComponent();
-
 
         }
         int noteId;

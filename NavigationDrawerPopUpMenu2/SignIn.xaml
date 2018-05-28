@@ -11,24 +11,24 @@
         <Rectangle RadiusX="20" RadiusY="20" Margin="20,0" MouseLeftButtonDown="DragEvent">
             <Rectangle.Fill>
                 <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
-                    <GradientStop Color="#daebfd" Offset="0"></GradientStop>
-                    <GradientStop Color="#daebfd" Offset="0.9"></GradientStop>
+                    <GradientStop Color="White" Offset="0"></GradientStop>
+                    <GradientStop Color="#FF1B497A" Offset="0.9"></GradientStop>
                 </LinearGradientBrush>
             </Rectangle.Fill>
         </Rectangle>
-        <TextBlock Margin="147,29,159,295" FontSize="24" FontWeight="ExtraBold">Welcome to</TextBlock>
-        <TextBlock Margin="147,60,159,258" FontSize="24" FontWeight="ExtraBold" >MyNote</TextBlock>
-        
+        <TextBlock Margin="176,29,130,295" FontSize="24" FontWeight="ExtraBold">Welcome to</TextBlock>
+        <TextBlock Margin="176,60,130,258" FontSize="24" FontWeight="ExtraBold" >MyNote</TextBlock>
+
         <materialDesign:Card
     materialDesign:ShadowAssist.ShadowDepth="Depth3"
     Padding="32" Margin="33,55,32,0" Height="270">
             <TextBlock Height="19" HorizontalAlignment="Left" x:Name ="errormessage" VerticalAlignment="Top" Width="191" Margin="33,143,0,-14"  OpacityMask="Crimson" Foreground="#FFE5572C" TextAlignment="Center" />
-            
+
         </materialDesign:Card>
         <TextBlock Margin="72,300,294,30">
         <Hyperlink Click="Reg_Click" FontWeight="Bold" TextDecorations=""  Style="{StaticResource MaterialDesignBody2Hyperlink}" > Регистрация </Hyperlink>
         </TextBlock>
-        <materialDesign:PackIcon Kind="Note" Height="99" Width="74" Margin="73,10,0,0" />
+        <materialDesign:PackIcon Kind="Note" Height="99" Width="74" Margin="102,10,0,0" />
         <Button Click="CloseApp_Click"
   Style="{StaticResource MaterialDesignFloatingActionDarkButton}"
   ToolTip="MaterialDesignFloatingActionDarkButton" Margin="378,15,32,295" Height="Auto" Width="Auto">

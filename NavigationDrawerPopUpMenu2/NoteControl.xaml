@@ -14,7 +14,7 @@
 
         <materialDesign:Card
     materialDesign:ShadowAssist.ShadowDepth="Depth4"  Margin="30,87,32,0" Height="220"></materialDesign:Card>
-        <DataGrid Name="grdEmployee" Foreground="#fff" IsReadOnly="True" Background="#fff" HorizontalAlignment="Left" Height="220" Margin="30,87,0,0" VerticalAlignment="Top" Width="721" SelectionChanged="grdEmployee_SelectionChanged"  AutoGenerateColumns="False">
+        <DataGrid Name="grdEmployee"  Foreground="#fff" IsReadOnly="True" Background="#fff" HorizontalAlignment="Left" Height="220" Margin="30,87,0,0" VerticalAlignment="Top" Width="721" SelectionChanged="grdEmployee_SelectionChanged"  AutoGenerateColumns="False">
             <DataGrid.Resources>
                 <Style TargetType="{x:Type DataGridColumnHeader}">
                     <Setter Property="Background" Value="#FF31577E"/>
@@ -22,6 +22,9 @@
                     <Setter Property="FontWeight" Value="Bold"/>
                     <Setter Property="FontSize" Value="17"/>
                     <Setter Property="Padding" Value="20,5,5,5"/>
+                </Style>
+                <Style TargetType="TextBlock" x:Key="WrapText">
+                    <Setter Property="TextWrapping" Value="Wrap"/>
                 </Style>
                 <Style TargetType="{x:Type DataGridCell}">
                     <Setter Property="Foreground" Value="#FF31577E"/>
@@ -36,7 +39,7 @@
 
             <DataGrid.Columns>
                 <DataGridTextColumn Binding="{Binding Title}"  Header="Тема" Width="250"/>
-                <DataGridTextColumn Binding="{Binding Text}" Header="Заметка" Width="350" />
+                <DataGridTextColumn Binding="{Binding Text}" Header="Заметка" Width="350" ElementStyle="{StaticResource WrapText}"/>
                 <DataGridTextColumn Binding="{Binding Time, StringFormat=\{0:dd.MM.yy\}}"  Header="Дата" Width="110"/>
             </DataGrid.Columns>
         </DataGrid>
@@ -45,7 +48,7 @@
         <Button Style="{StaticResource MaterialDesignRaisedDarkButton}" ToolTip="Resource name: MaterialDesignRaisedLightDarkButton" Content="Сохранить" Click="Save_Click"  FontSize="20" HorizontalAlignment="Left" Margin="32,429,0,10" Width="142" Height="Auto" RenderTransformOrigin="0.482,0.718"/>
         <TextBlock Text="Тема" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="30,326,687,118"/>
         <TextBlock Text="Текст" Foreground="#FF31577E" FontSize="25" FontWeight="Bold" Margin="282,326,436,118"/>
-        <TextBox Name="textBoxText" MaxLength="50" HorizontalAlignment="Left" FontSize="25" Background="#fff" Padding="5" Height="98" Margin="352,326,0,0" Foreground="#FF31577E" TextWrapping="Wrap" VerticalAlignment="Top" Width="399" TextChanged="textBoxText_TextChanged" materialDesign:HintAssist.Hint=""/>
+        <TextBox Name="textBoxText" MaxLength="200" HorizontalAlignment="Left" FontSize="21" Background="#fff" Padding="3" Height="98" Margin="352,326,0,0" Foreground="#FF31577E" TextWrapping="Wrap" VerticalAlignment="Top" Width="399" TextChanged="textBoxText_TextChanged" materialDesign:HintAssist.Hint=""/>
         <TextBlock x:Name="errors" FontSize="26" Foreground="Red" TextAlignment="Right" Margin="350,429,32,10"></TextBlock>
         <TextBox Name="search_Copy" MaxLength="20" Background="Transparent" HorizontalAlignment="Left" FontSize="25" TextAlignment="Center" Text="" Height="40" Margin="101,326,0,0" TextWrapping="Wrap" Foreground="#FF31577E"  VerticalAlignment="Top" Width="157" />
         <DatePicker Name="DatePick" Foreground="#FF31577E" HorizontalAlignment="Center" FontSize="16"

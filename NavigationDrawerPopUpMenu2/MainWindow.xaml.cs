@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Drawing;
 using System.Data;
 using System.Data.SqlClient;
 
@@ -36,6 +37,7 @@ namespace MyNote
             var count3 = db.Archives.Where(u => u.User.Id == user.Id).Count();
             HelloArchive.Text = "Заметок в архиве: " + count3;
             manwnd = this;
+
         }
 
         public static User user = new User();
@@ -94,17 +96,13 @@ namespace MyNote
             this.Close();
             
         }
-
-       
-
+        
         private void Tray_Click(object sender, RoutedEventArgs e)
         {
-            
-            this.ShowInTaskbar=true;
-    
+            WindowState = WindowState.Minimized;
 
         }
-
+        
         private void DragEvent(object sender, MouseButtonEventArgs e)
         {
             this.DragMove();

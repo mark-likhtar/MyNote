@@ -49,8 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>note.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
@@ -100,33 +99,13 @@
     <Compile Include="Data\Archive.cs" />
     <Compile Include="Data\Note.cs" />
     <Compile Include="Data\Notice.cs" />
-    <Compile Include="Migrations\201805220934552_init1.cs" />
-    <Compile Include="Migrations\201805220934552_init1.Designer.cs">
-      <DependentUpon>201805220934552_init1.cs</DependentUpon>
+    <Compile Include="Migrations\201805281405259_init7.cs" />
+    <Compile Include="Migrations\201805281405259_init7.Designer.cs">
+      <DependentUpon>201805281405259_init7.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201805220938227_init2.cs" />
-    <Compile Include="Migrations\201805220938227_init2.Designer.cs">
-      <DependentUpon>201805220938227_init2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805220945060_init.cs" />
-    <Compile Include="Migrations\201805220945060_init.Designer.cs">
-      <DependentUpon>201805220945060_init.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805220945268_init3.cs" />
-    <Compile Include="Migrations\201805220945268_init3.Designer.cs">
-      <DependentUpon>201805220945268_init3.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805221057298_init4.cs" />
-    <Compile Include="Migrations\201805221057298_init4.Designer.cs">
-      <DependentUpon>201805221057298_init4.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805231019005_init5.cs" />
-    <Compile Include="Migrations\201805231019005_init5.Designer.cs">
-      <DependentUpon>201805231019005_init5.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\201805241907151_init6.cs" />
-    <Compile Include="Migrations\201805241907151_init6.Designer.cs">
-      <DependentUpon>201805241907151_init6.cs</DependentUpon>
+    <Compile Include="Migrations\201805281509006_init.cs" />
+    <Compile Include="Migrations\201805281509006_init.Designer.cs">
+      <DependentUpon>201805281509006_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="NoticeWrap.xaml.cs">
@@ -212,26 +191,11 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <EmbeddedResource Include="Migrations\201805220934552_init1.resx">
-      <DependentUpon>201805220934552_init1.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805281405259_init7.resx">
+      <DependentUpon>201805281405259_init7.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805220938227_init2.resx">
-      <DependentUpon>201805220938227_init2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805220945060_init.resx">
-      <DependentUpon>201805220945060_init.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805220945268_init3.resx">
-      <DependentUpon>201805220945268_init3.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805221057298_init4.resx">
-      <DependentUpon>201805221057298_init4.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805231019005_init5.resx">
-      <DependentUpon>201805231019005_init5.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\201805241907151_init6.resx">
-      <DependentUpon>201805241907151_init6.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201805281509006_init.resx">
+      <DependentUpon>201805281509006_init.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -265,6 +229,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="note.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
